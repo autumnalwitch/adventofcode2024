@@ -1,7 +1,6 @@
 file = open("input.txt")
 list_a = []
 list_b = []
-list_s = []
 for line in file:
     line = line.rstrip()
     # split the line into two ints
@@ -14,6 +13,14 @@ list_b.sort()
 
 solution = 0
 for i in range(len(list_a)):
-    solution = solution + abs(list_b[i] - list_a[i])
+    solution += abs(list_b[i] - list_a[i])
+
+print("part1: {}".format(solution))
+
+solution = 0
+for a in list_a:
+    for b in list_b:
+        if a == b:
+            solution += a
 
 print(solution)
